@@ -1,0 +1,25 @@
+.card {
+  background: #616161;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cardActionArea {
+  flex: 1;
+}
+.cardContent {
+  display: flex;
+  justify-content: center;
+  background-color: #616161;
+}
+.cardFooter {
+  background-color: #a38846;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #282828;
+}

@@ -1,0 +1,19 @@
+.header {
+  padding: 0px 20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #f1f1f1;
+  text-align: center;
+}
+
+.textLeft {
+  text-align: left;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}

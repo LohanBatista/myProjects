@@ -1,0 +1,28 @@
+.listContainer {
+  width: 220px;
+  margin: 20px;
+}
+.listCardBody {
+  width: 100%;
+  text-align: center;
+  font-weight: 400px;
+}
+.listCardItem {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  font-size: 13.5px;
+}
+.icon {
+  margin-right: 10px;
+}
+
+.listFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bolder;
+  color: #282828;
+}
