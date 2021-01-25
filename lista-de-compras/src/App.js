@@ -1,39 +1,58 @@
 import "./App.css";
-import { createMuiTheme } from "@material-ui/core/styles";
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import {
+  ThemeProvider as MuiThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
+
 import Header from "./components/AppBar";
 import Home from "./components/home";
 import CreateList from "./components/CreateList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./state/store";
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: {
       main: "#3A3A3A",
-      main_dark: "#282828",
-      main_light: "#616161",
     },
+    primary_dark: {
+      main: "#282828",
+    },
+    primary_light: {
+      main: "#616161",
+    },
+
     secondary: {
       main: "#a38846",
-      main_dark: "#a38846",
-      main_light: "#eecf83",
+    },
+    secondary_dark: {
+      main: "#a38846",
+    },
+    secondary_light: {
+      main: "#eecf83",
     },
   },
 });
 
 function App() {
   return (
-    <MuiThemeProvider theme={theme}>
-      <Router>
-        <div>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/lista" component={CreateList} />
-          </Switch>
-        </div>
-      </Router>
-    </MuiThemeProvider>
+    <Provider store={store}>
+      <MuiThemeProvider theme={theme}>
+        <Router>
+          <div>
+            <Header />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/lista" component={CreateList} />
+            </Switch>
+          </div>
+        </Router>
+      </MuiThemeProvider>
+    </Provider>
   );
 }
 

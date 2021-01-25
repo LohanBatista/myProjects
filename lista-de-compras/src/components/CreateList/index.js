@@ -1,63 +1,40 @@
-import React from "react";
-import MenuItem from "@material-ui/core/MenuItem";
-import TextField from "@material-ui/core/TextField";
-import { InputAdornment } from "@material-ui/core";
+import React, { Component } from "react";
+import Form from "../Form";
+import CRListItem from "../CreateList-ListItem";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Creators as ListActions } from "../../ducks/list";
 
-const units = ["kg", "lt", "un"];
+import "./list.css";
 
-const CreateList = () => {
-  return (
-    <div className="pageContainer">
-      <form className="form-container">
-        <TextField
-          name="list"
-          label="Lista"
-          value={""}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          name="product"
-          label="Produto"
-          value={""}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          name="quantity"
-          label="Quantidade"
-          value={""}
-          onChange={() => {}}
-          required
-        />
-        <TextField
-          select
-          name="unity"
-          label="Unidade"
-          value={""}
-          onChange={() => {}}
-          required
-        >
-          {units.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
+class CreateList extends Component {
+  addProduct = (product, list) => {
+    this.props.addProduct(product, list);
+  };
+  render() {
+    return (
+      <div className="pageContainer">
+        <Form addProduct={this.addProduct} />
+        <div className="listItemContainer">
+          {this.props.list.items.map((item) => (
+            <CRListItem item={item} key={item.product} />
           ))}
-        </TextField>
-        <TextField
-          name="price"
-          label="Preço"
-          value={""}
-          onChange={() => {}}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">R$</InputAdornment>
-            ),
-          }}
-        />
-      </form>
-    </div>
-  );
-};
+        </div>
+      </div>
+    );
+  }
+}
 
-export default CreateList;
+// const mapStateToProps = (list) => {
+//   return {
+//     list: list.list,
+//   };
+// };
+const mapStateToProps = (state) => ({
+  list: state.list,
+});
+
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(ListActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateList);

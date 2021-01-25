@@ -10,6 +10,7 @@
 .cardContent {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   background-color: #616161;
 }
 .cardFooter {
@@ -22,4 +23,8 @@
   font-size: 12px;
   font-weight: bolder;
   color: #282828;
+}
+
+.cardImg {
+  object-fit: cover;
 }

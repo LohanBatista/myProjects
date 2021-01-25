@@ -1,0 +1,59 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #616161;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.formRow > div {
+  min-width: 200px;
+  margin: 0px 10px;
+}
+
+.formRow button {
+  margin: 10px;
+  width: 150px;
+}
+
+.listItemContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.listItemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.listItem {
+  max-width: 220px;
+  min-width: 220px;
+  margin: 20px;
+}
+
+.listCardFooter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #282828;
+  margin-right: 15px;
+}
+
+.listCardFooterActions {
+  display: flex;
+  width: 35px;
+  justify-content: space-between;
+}
+
+.MuiMenu-list {
+  outline: 15;
+  background-color: #616161;
+}
