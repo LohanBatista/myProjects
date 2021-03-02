@@ -6,15 +6,15 @@ import "./list.css";
 
 import { faShoppingBasket, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-const List = () => {
+const List = (props) => {
   return (
     <CustomCard
       link="/lista"
       containerClass="listContainer"
-      footer={<ListFooter />}
+      footer={<ListFooter total={props.total} />}
     >
       <div>
-        <p className="title">Mês</p>
+        <p className="title">{props.list}</p>
         <div className="listCardBody">
           <div className="listCardItem">
             <ListItem icon={faShoppingBasket} text={"1 Item(s) Restantes"} />
